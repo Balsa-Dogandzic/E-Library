@@ -9,7 +9,10 @@
 </head>
 
 <body>
-    <h1>Book {{ book }}</h1>
+    <h1>Book</h1>
+    {% for book in books %}
+    <p>{{book[1]}}</p>
+    {% endfor %}
 </body>
 
 </html>

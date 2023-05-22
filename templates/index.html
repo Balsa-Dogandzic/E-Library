@@ -11,6 +11,9 @@
 
 <body>
     <h1>Welcome</h1>
+    {% if session.get("is_logged") == True %}
+    <a href="/logout">Logout</a>
+    {% endif %}
 </body>
 
 </html>
