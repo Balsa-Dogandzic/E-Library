@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="description" content="Project">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Kontakt</title>
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style_for_imp_forms.css')}}">
+  <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
+
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+
+
+  <div class="container_for_contact">
+    <h2>Kontaktirajte nas</h2>
+    <form>
+      <div class="form-group_for_contact">
+        <label for="name">Ime i prezime:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group_for_contact">
+        <label for="email">E-mail adresa:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group_for_contact">
+        <label for="message">Poruka:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <button type="submit" class="btn-submit" onclick="">Pošalji!</button>
+    </form>
+  </div>
+
+  {% include 'footer.html' %}
+
+</body>
+
+</html>

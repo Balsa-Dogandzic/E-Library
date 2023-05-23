@@ -1,0 +1,144 @@
+.container_for_borrow {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .container_for_borrow h2 {
+    text-align: center;
+  }
+  .form-group-pozajmi {
+    margin-bottom: 15px;
+  }
+  .form-group-pozajmi label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-group-pozajmi input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffd000;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  .btn-submit:hover {
+    background-color: #bb9b0c;
+  }
+
+  /* Stilizovanje forme za vracene knjige*/
+
+  .container_for_return {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .container_for_return h2 {
+    text-align: center;
+  }
+  .form-group-vrati {
+    margin-bottom: 15px;
+  }
+  .form-group-vrati label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-group-vrati input,
+  .form-group-vrati select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffd000;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  .btn-submit:hover {
+    background-color: #bb9b0c;
+  }
+
+  /* Forma za kontakt formu */
+
+  .container_for_contact {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .container_for_contact h2 {
+    text-align: center;
+  }
+  .form-group_for_contact {
+    margin-bottom: 15px;
+  }
+  .form-group_for_contact label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  .form-group_for_contact input,
+  .form-group_for_contact textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+  }
+  .form-group textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffd000;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  .btn-submit:hover {
+    background-color: #bb9b0c;
+  }

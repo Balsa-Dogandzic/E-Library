@@ -2,18 +2,198 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
-    <title>Home page</title>
+
+  <meta charset="UTF-8">
+  <meta name="description" content="Project">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Početna</title>
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Macondo&family=Playfair+Display:ital@1&family=Satisfy&family=Square+Peg&display=swap"
+    rel="stylesheet">
+  <!-- Icon library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
 <body>
-    <h1>Welcome</h1>
-    {% if session.get("is_logged") == True %}
-    <a href="/logout">Logout</a>
-    {% endif %}
+  {% include 'navbar.html' %}
+
+  <div>
+    <h1 class="heading_01">Dobro došli!</h1>
+    <h3 class="heading_01">Mi postojimo za vas! Web aplikacija za ljubitelje knjiga.
+      Online biblioteka posjeduje veliki broj knjiga.<br>
+      Putem sajta možete pozajmiti vašu omiljenu knjigu online.</h3>
+  </div>
+
+  <div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <a href="library_01.html"><img src="{{url_for('static', filename='img/book_01.jpg')}}" style="width:100%"
+          alt="Error"></a>
+      <div class="text">Chateau de Chantilly Library, Šantiji, Francuska</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <a href="library_02.html"><img src="{{url_for('static', filename='img/book_02.jpg')}}" style="width:100%"
+          alt="Error"></a>
+      <div class="text">Stockholm Public Library, Stokholm</div>
+    </div>
+
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <a href="library_03.html"><img src="{{url_for('static', filename='img/book_03.jpg')}}" style="width:100%"
+          alt="Error"></a>
+      <div class="text">Bodleian Library, Oksford, UK</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <h1 class="heading_01">Izaberi svoju knjigu</h1>
+
+  <div class="box_one">
+    <div>
+      <a href="library.html">
+        <img src="{{url_for('static', filename='img/buy_book01.png')}}" class="images" alt="Error">
+      </a>
+      <h1>Where the Crawdads Sing</h1>
+      <p>Priča prati dvije vremenske linije koje se polako prepliću.
+        Prva vremenska linija opisuje život i avanture mlade djevojke po imenu Kaja
+        dok je odrastala u izolaciji u močvari Sjeverne Karoline od 1952. do 1969.
+        Druga vremenska linija prati istragu o očiglednom ubistvu <span class="style_txt">Čejsa Endruza</span>, lokalne
+        poznate ličnosti iz Barkli Kouva.
+        Izmišljeni priobalni grad <span class="style_txt">Sjeverne Karoline</span>.</p>
+    </div>
+    <div>
+      <a href="library.html">
+        <img src="{{url_for('static', filename='img/buy_book02.jpg')}}" class="images" alt="Error">
+      </a>
+      <h1>Too Much and Never Enough</h1>
+      <p>Previše i nikad dovoljno! Kako je moja porodica stvorila najopasnijeg čovjeka na svijetu je knjiga koja
+        govori sve o svom ujaku, bivšem predsjedniku SAD <span class="style_txt">Donaldu Trampu</span> i njegovoj
+        porodici,
+        koju je napisala psiholog <span class="style_txt">Meri L. Tramp</span>. Objavili su ga <span
+          class="style_txt">Simon & Schuster</span> 14. jula 2020.</p>
+    </div>
+    <div>
+      <a href="library.html">
+        <img src="{{url_for('static', filename='img/buy_book03.jpg')}}" class="images" alt="Error">
+      </a>
+      <h1>Midnight Sun</h1>
+      <p>Ponoćno sunce je prateći roman iz 2020. godine uz knjigu Sumrak iz 2005. autorke <span
+          class="style_txt">Stephenie Meier</span>.
+        Djelo umjesto toga prepričava događaje Sumraka iz perspektive Edvarda Kalena
+        od uobičajenog pripovjedačkog lika serije <span class="style_txt">Bele Svon</span>. Mejer je izjavio da je
+        Tvilight
+        da bude jedina knjiga iz serije koju je planirala da prepiše iz Edvardove perspektive.</p>
+    </div>
+    <div>
+      <a href="library.html">
+        <img src="{{url_for('static', filename='img/buy_book04.jpg')}}" class="images" alt="Error">
+      </a>
+      <h1>Untamed</h1>
+      <p>Neukroćeni su memoari <span class="style_txt">Glenona Dojla</span> iz 2020. godine. Objavio ga je The Dial
+        Press 10. marta 2020.
+        To su njeni treći memoari nakon njenih djela <span class="style_txt">Love Varrior i Carri on, Varrior</span>.
+        Knjiga je debitovala na prvom mjestu na listi bestselera dokumentarne literature Njujork Tajmsa
+        gdje je ostao sedam nedjelja. Od 31. maja 2020, knjiga je provela 10 nedelja na listi.</p>
+    </div>
+    <div>
+      <a href="library.html">
+        <img src="{{url_for('static', filename='img/buy_book05.jpg')}}" class="images" alt="Error">
+      </a>
+      <h1>Becoming</h1>
+      <p>Postajanje su memoari bivše prve dame Sjedinjenih Država <span class="style_txt">Mišel Obame</span>, objavljeni
+        2018.
+        Opisana od strane autora kao duboko lično iskustvo, knjiga govori o njenim korijenima i
+        kako je pronašla svoj glas, kao i vrijeme provedeno u Bijeloj kući, njena kampanja za javno zdravlje,
+        i njena uloga majke. Knjigu izdaje <span class="style_txt">Kraun</span> i objavljena je na <span
+          class="style_txt">24 jezika</span>.
+        Milion primjeraka je donirano američkoj neprofitnoj organizaciji <span class="style_txt">First Book</span>
+        koja djeci obezbjeđuje knjige.</p>
+    </div>
+    <div>
+      <a href="library.html">
+        <img src="{{url_for('static', filename='img/buy_book06.jpg')}}" class="images" alt="Error">
+      </a>
+      <h1>A Promised Land</h1>
+      <p>Knjiga je dobila mnoge kritike i stavljena je na listu najboljih na kraju godine od strane <span
+          class="style_txt">The Nev Iork Times-a</span>,
+        <span class="style_txt">The Vashington Post</span> i <span class="style_txt">The Guardian</span>. Komercijalno
+        je bio izuzetno uspješan i,
+        od izdanja od 7. februara 2021, knjiga je bila bestseler Njujork tajmsa
+        u nefikciji deset uzastopnih nedjelja.
+      </p>
+    </div>
+  </div>
+
+  <!-- Read more - modal window -->
+
+  <!-- Trigger/Open The Modal -->
+  <div class="button-section">
+    <button id="myBtn">Saznaj više!</button>
+  </div>
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2 class="heading_center">Posjeti našu biblioteku!</h2>
+      </div>
+      <div class="modal-body">
+        <p>Dobro došli na sajt naše biblioteke! Ovdje uživamo u pružanju znanja, inspiracije i avanture putem knjiga.
+          Naša biblioteka je mjesto koje oplemenjuje duh, proširuje horizonte i omogućava otkrivanje svijeta
+          kroz pisane riječi.<br><br>
+          Naša misija je biti neiscrpni izvor informacija i izvora zadovoljstva za sve
+          naše posjetioce. Sa širokim spektrom knjiga, časopisa, e-knjiga i drugih resursa, težimo zadovoljiti
+          različite interese, učiti, posticati maštu ljudi.<br><br>
+          Posjetite biblioteku i uživajte!</p>
+        <p><a href="library.html" class="send_to_library">Biblioteka!</a></p>
+      </div>
+    </div>
+
+  </div>
+
+
+  <form action="/subscribe" method="POST" class="form_subscribe">
+    <video autoplay loop muted>
+      <source src="{{url_for('static', filename='videos/books_for_bg.mp4')}}" type="video/mp4">
+    </video>
+    <label for="subs">Pretplatite se za novosti!</label>
+    <input type="email" id="email" name="email" placeholder="Vaša e-mail adresa:" required>
+    <button type="submit">Pretplati se!</button>
+  </form>
+
+
+  {% include 'footer.html' %}
+
+  <!-- JavaScript files -->
+  <script src="{{url_for('static', filename='js/script.js')}}"></script>
+  <script src="{{url_for('static', filename='js/script_for_modal_window.js')}}"></script>
+
 </body>
 
 </html>

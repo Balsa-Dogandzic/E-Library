@@ -2,22 +2,92 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+
+   <meta charset="UTF-8">
+   <meta name="description" content="Project">
+   <meta name="keywords" content="HTML, CSS, JavaScript">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <title>Log In | Sign up</title>
+
+   <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+   <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
+   <link rel="stylesheet" href="{{url_for('static', filename='css/style_for_log_in.css')}}">
+
 </head>
 
 <body>
-    <form action="/login" method="post">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username">
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password">
-        <br><br>
-        <input type="submit" value="login">
-    </form>
-    <div>{{message}}</div>
+   {% include 'navbar.html' %}
+
+   <br>
+   <h1 class="center_center">Prijavite se da postane naš član!</h1>
+   <br>
+
+   <div class="center_form">
+      <div class="wrapper">
+         <div class="title-text">
+            <div class="title login">
+               Prijavi se
+            </div>
+            <div class="title signup">
+               Registruj se
+            </div>
+         </div>
+         <div class="form-container">
+            <div class="slide-controls">
+               <input type="radio" name="slide" id="login" checked>
+               <input type="radio" name="slide" id="signup">
+               <label for="login" class="slide login">Prijavi se</label>
+               <label for="signup" class="slide signup">Registruj se</label>
+               <div class="slider-tab"></div>
+            </div>
+            <div class="form-inner">
+               <form action="/login" method="post" class="login">
+                  <div class="field">
+                     <input type="text" placeholder="Korisničko ime:" name="username" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Lozinka:" name="password" required>
+                  </div>
+                  <div class="pass-link">
+                     <a href="#">Zaboravljena lozinka?</a>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Login">
+                  </div>
+                  <div class="signup-link">
+                     Nemaš nalog? <a href="#">Registruj se</a>
+                  </div>
+               </form>
+               <form action="/register" class="signup">
+                  <div class="field">
+                     <input type="text" placeholder="Korisničko ime" name="username" required>
+                  </div>
+                  <div class="field">
+                     <input type="text" placeholder="Puno ime" name="full_name" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Lozinka" name="password" required>
+                  </div>
+                  <div class="field">
+                     <input type="password" placeholder="Potvrdi lozinku" required>
+                  </div>
+                  <div class="field btn">
+                     <div class="btn-layer"></div>
+                     <input type="submit" value="Registruj se!">
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
+
+
+   {% include 'footer.html' %}
+
+   <script src="{{url_for('static', filename='js/script_for_log_in.js')}}"></script>
 </body>
 
 </html>

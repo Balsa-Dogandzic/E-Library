@@ -1,0 +1,22 @@
+<footer>
+    <div class="footer-content">
+        <h3>Hvala na posjeti!</h3>
+        <p>Hvala što ste stigli do kraja stranice! Kontkatirajte nas za više informacija.</p>
+    </div>
+    <div class="footer-bottom">
+        <p>Copyright &copy; 2023 - Svaka prava zadržana. - <a href="/">books.me</a> </p>
+        <div class="footer-menu">
+            <ul class="f-menu">
+                <li><a href="/">Početna</a></li>
+                <li><a href="library.html">Biblioteka</a></li>
+                <li><a href="/contact">Kontakt</a></li>
+                {% if session.get("is_logged") != True %}
+                <li><a href="/login">Prijavi se</a></li>
+                {% else %}
+                <li><a href="/logout">Odjavi se</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+
+</footer>
