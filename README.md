@@ -4,5 +4,7 @@ Pokretanje aplikacije:
 - python -m venv env
 2. Aktiviranje okruzenja
 - env\Scripts\activate
-3. Importovanje SQL fajla u phpMyAdmin
-4. Pokretanje app.py fajla
+3. Instalacija biblioteka (flask, flask_mysqldb)
+- pip install -r requirements.txt
+4. Importovanje SQL fajla u phpMyAdmin
+5. Pokretanje app.py fajla
