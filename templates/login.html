@@ -17,7 +17,7 @@
 </head>
 
 <body>
-   {% include 'navbar.html' %}
+   {% include 'components/navbar.html' %}
 
    <br>
    <h1 class="center_center">Prijavite se da postane naš član!</h1>
@@ -43,6 +43,7 @@
             </div>
             <div class="form-inner">
                <form action="/login" method="post" class="login">
+                  <span style="color: red;">{{login_message}}</span>
                   <div class="field">
                      <input type="text" placeholder="Korisničko ime:" name="username" required>
                   </div>
@@ -60,7 +61,8 @@
                      Nemaš nalog? <a href="#">Registruj se</a>
                   </div>
                </form>
-               <form action="/register" class="signup">
+               <form action="/register" class="signup" method="post">
+                  <span style="color: red;">{{register_message}}</span>
                   <div class="field">
                      <input type="text" placeholder="Korisničko ime" name="username" required>
                   </div>
@@ -85,7 +87,7 @@
    <br>
 
 
-   {% include 'footer.html' %}
+   {% include 'components/footer.html' %}
 
    <script src="{{url_for('static', filename='js/script_for_log_in.js')}}"></script>
 </body>
