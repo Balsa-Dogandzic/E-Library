@@ -1,6 +1,5 @@
 from __main__ import app, db
-from flask import Flask, render_template, request, session, redirect, url_for
-from flask_mysqldb import MySQL
+from flask import render_template, request, session, redirect, url_for
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -13,6 +12,7 @@ def login():
         cursor = db.connection.cursor()
         cursor.execute(f"SELECT * FROM korisnik WHERE username='{username}' AND password='{password}'")
         user = cursor.fetchone()
+        cursor.close()
         if user:
             session['is_logged'] = True
             session['username'] = user[1]
@@ -44,6 +44,7 @@ def register():
                 cursor = db.connection.cursor()
                 cursor.execute(f"INSERT INTO korisnik VALUES (NULL,'{username}','{password}','{full_name}')")
                 db.connection.commit()
+                cursor.close()
                 return redirect(url_for("login"))
             except:
                 message = "A user with that username exists"
