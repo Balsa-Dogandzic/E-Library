@@ -10,7 +10,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         cursor = db.connection.cursor()
-        cursor.execute(f"SELECT * FROM korisnik WHERE username='{username}' AND password='{password}'")
+        cursor.execute(f"SELECT * FROM korisnik WHERE korisnicko_ime='{username}' AND lozinka='{password}'")
         user = cursor.fetchone()
         cursor.close()
         if user:
@@ -18,7 +18,7 @@ def login():
             session['username'] = user[1]
             session['full_name'] = user[3]
             return redirect(url_for('home'))
-        message = "Invalid credentials"
+        message = "Nevalidni kredencijali"
     return render_template("login.html", login_message=message)
 
 @app.route('/logout')
@@ -35,17 +35,19 @@ def register():
     message = ""
     if request.method == 'POST':
         username = request.form['username']
+        first_name = request.form['first_name']
+        last_name = request.form['last_name']
+        email = request.form['email']
         password = request.form['password']
-        full_name = request.form['full_name']
-        if len(username) == 0 or len(password) == 0 or len(full_name) == 0:
-            message = "All the fields are required"
+        if len(username) == 0 or len(password) == 0 or len(email) == 0 or len(first_name) == 0 or len(last_name) == 0:
+            message = "Sva polja je neophodno ispuniti"
         else:
             try:
                 cursor = db.connection.cursor()
-                cursor.execute(f"INSERT INTO korisnik VALUES (NULL,'{username}','{password}','{full_name}')")
+                cursor.execute(f"INSERT INTO korisnik VALUES (NULL,'{username}','{email}','{password}','{first_name}','{last_name}',1)")
                 db.connection.commit()
                 cursor.close()
                 return redirect(url_for("login"))
             except:
-                message = "A user with that username exists"
+                message = "Korisnik sa tim username-om vec postoji"
     return render_template("login.html",register_message=message)
