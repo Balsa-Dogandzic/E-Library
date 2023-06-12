@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj knjigu</title>
+</head>
+
+<body>
+    <form action="/books/add" method="post">
+        <input type="text" name="title" placeholder="naslov">
+        <input type="text" name="genre" placeholder="zanr">
+        <select name="author">
+            {% for author in authors %}
+            <option value="{{author[0]}}">{{author[1]}}</option>
+            {% endfor %}
+        </select>
+        <select name="cover">
+            <option value="Meki povez">Meki povez</option>
+            <option value="Tvrdi povez">Tvrdi povez</option>
+        </select>
+        <input type="submit" value="dodaj knjigu">
+    </form>
+</body>
+
+</html>

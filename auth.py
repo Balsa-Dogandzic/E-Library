@@ -16,7 +16,7 @@ def login():
         if user:
             session['is_logged'] = True
             session['username'] = user[1]
-            session['full_name'] = user[3]
+            session['user_type'] = user[-1]
             return redirect(url_for('home'))
         message = "Nevalidni kredencijali"
     return render_template("login.html", login_message=message)
@@ -25,7 +25,7 @@ def login():
 def logout():
     session.pop('is_logged', None)
     session.pop('username', None)
-    session.pop('full_name', None)
+    session.pop('user_type', None)
     return redirect(url_for('login'))
 
 @app.route('/register', methods=['GET', 'POST'])

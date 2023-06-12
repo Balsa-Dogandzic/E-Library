@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knjige</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Naslov</th>
+            <th>Zanr</th>
+            <th>Autor</th>
+            <th>Povez</th>
+            <th>Link</th>
+        </tr>
+
+        {% for book in books %}
+        <tr>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[-1] }}</td>
+            <td>{{ book[4] }}</td>
+            <td><a href="books/{{ book[0] }}">Link</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+
+</html>
