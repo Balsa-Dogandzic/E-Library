@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promijeni knjigu</title>
+</head>
+
+<body>
+    <form action="/books/edit/{{book[0]}}" method="post">
+        <input type="text" name="title" placeholder="naslov" value="{{ book[1] }}">
+        <input type="text" name="genre" placeholder="zanr" value="{{ book[2] }}">
+        <select name="author">
+            {% for author in authors %}
+            {% if author[0] == book[3]%}
+            <option value="{{author[0]}}" selected>{{author[1]}}</option>
+            {% endif%}
+            <option value="{{author[0]}}">{{author[1]}}</option>
+            {% endfor %}
+        </select>
+        <select name="cover">
+            {% if book[4] == 'Meki povez' %}
+            <option value="Meki povez" selected>Meki povez</option>
+            <option value="Tvrdi povez">Tvrdi povez</option>
+            {% else %}
+            <option value="Meki povez">Meki povez</option>
+            <option value="Tvrdi povez" selected>Tvrdi povez</option>
+            {% endif%}
+        </select>
+        <input type="submit" value="dodaj knjigu">
+    </form>
+</body>
+
+</html>
