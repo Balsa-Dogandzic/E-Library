@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervacije</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>Knjiga</th>
+            <th>Preuzeta</th>
+            <th>Treba biti vracena</th>
+            {% if session['user_type'] == 2 %}
+            <th>Link</th>
+            {% endif %}
+        </tr>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{reservation[1]}}</td>
+            <td>{{reservation[2]}}</td>
+            <td>{{reservation[3]}}</td>
+            <td>{{reservation[4]}}</td>
+            <td>{{reservation[5]}}</td>
+            {% if session['user_type'] == 2 %}
+            <td><a href="/reservations/delete/{{reservation[0]}}">vrati knjigu</a></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

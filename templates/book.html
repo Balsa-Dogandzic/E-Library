@@ -13,8 +13,10 @@
     <p>{{ book[-1] }}</p>
     <p>{{ book[4] }}</p>
     <br>
+    {% if session['user_type'] == 2 %}
     <a href="/books/edit/{{ book[0] }}">Prepravi</a>
     <a href="/books/delete/{{ book[0] }}">Obrisi</a>
+    {% endif %}
 </body>
 
 </html>

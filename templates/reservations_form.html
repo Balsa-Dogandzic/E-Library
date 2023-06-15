@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodaj rezervaciju</title>
+</head>
+
+<body>
+    <form action="/reservations/add" method="post">
+        <p>Knjiga:</p>
+        <select name="book">
+            {% for book in books %}
+            <option value="{{ book[0] }}">{{ book[1] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <input type="date" name="issue_start">
+        <br>
+        <input type="date" name="issue_end">
+        <br><br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>

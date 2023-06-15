@@ -15,6 +15,7 @@ def login():
         cursor.close()
         if user:
             session['is_logged'] = True
+            session['id'] = user[0]
             session['username'] = user[1]
             session['user_type'] = user[-1]
             return redirect(url_for('home'))
@@ -24,6 +25,7 @@ def login():
 @app.route('/logout')
 def logout():
     session.pop('is_logged', None)
+    session.pop('id', None)
     session.pop('username', None)
     session.pop('user_type', None)
     return redirect(url_for('login'))
