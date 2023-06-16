@@ -2,34 +2,63 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+    <meta name="description" content="Project">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promijeni knjigu</title>
+
+    <title>Pozajmi</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style_for_imp_forms.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
 </head>
 
 <body>
-    <form action="/books/edit/{{book[0]}}" method="post">
-        <input type="text" name="title" placeholder="naslov" value="{{ book[1] }}">
-        <input type="text" name="genre" placeholder="zanr" value="{{ book[2] }}">
-        <select name="author">
-            {% for author in authors %}
-            {% if author[0] == book[3]%}
-            <option value="{{author[0]}}" selected>{{author[1]}}</option>
-            {% endif%}
-            <option value="{{author[0]}}">{{author[1]}}</option>
-            {% endfor %}
-        </select>
-        <select name="cover">
-            {% if book[4] == 'Meki povez' %}
-            <option value="Meki povez" selected>Meki povez</option>
-            <option value="Tvrdi povez">Tvrdi povez</option>
-            {% else %}
-            <option value="Meki povez">Meki povez</option>
-            <option value="Tvrdi povez" selected>Tvrdi povez</option>
-            {% endif%}
-        </select>
-        <input type="submit" value="dodaj knjigu">
-    </form>
+
+    {% include 'components/navbar.html' %}
+
+    <div class="container_for_borrow">
+        <h2>Pozajmica knjiga</h2>
+        <form action="/books/edit/{{ book[0] }}" method="post">
+            <div class="form-group-pozajmi">
+                <label for="book-title">Naziv knjige:</label>
+                <input type="text" id="book-title" name="title" value="{{ book[1] }}" required>
+            </div>
+            <div class="form-group-pozajmi">
+                <label for="author-name">Zanr:</label>
+                <input type="text" id="author-name" name="genre" value="{{ book[2] }}" required>
+            </div>
+            <div class="form-group-pozajmi">
+                <label for="person-name">Autor:</label>
+                <select name="author">
+                    {% for author in authors %}
+                    {% if author[0] == book[3]%}
+                    <option value="{{author[0]}}" selected>{{author[1]}}</option>
+                    {% endif%}
+                    <option value="{{author[0]}}">{{author[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group-pozajmi">
+                <label for="phone-number">Povez:</label>
+                <select name="cover">
+                    {% if book[4] == 'Meki povez' %}
+                    <option value="Meki povez" selected>Meki povez</option>
+                    <option value="Tvrdi povez">Tvrdi povez</option>
+                    {% else %}
+                    <option value="Meki povez">Meki povez</option>
+                    <option value="Tvrdi povez" selected>Tvrdi povez</option>
+                    {% endif%}
+                </select>
+            </div>
+            <input type="submit" class="btn-submit" value="Prepravi knjigu">
+        </form>
+    </div>
+
+    {% include 'components/footer.html' %}
+
 </body>
 
 </html>

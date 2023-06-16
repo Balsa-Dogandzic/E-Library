@@ -2,21 +2,33 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+    <meta name="description" content="Project">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knjige</title>
+
+    <title>Biblioteka</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style_for_filter_search.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
 </head>
 
 <body>
-    <table>
-        <tr>
-            <th>Naslov</th>
-            <th>Zanr</th>
-            <th>Autor</th>
-            <th>Povez</th>
-            <th>Link</th>
-        </tr>
+    {% include 'components/navbar.html' %}
 
+
+    <h2 class="available_books">Biblioteka | Galerija knjiga</h2>
+
+    <table id="tabela-knjige">
+        <tr>
+            <th>Naziv knjige ili časopisa</th>
+            <th>Zanr knjige</th>
+            <th>Autor</th>
+            <th>Povez/Korice</th>
+            <th>Link do knjige</th>
+        </tr>
         {% for book in books %}
         <tr>
             <td>{{ book[1] }}</td>
@@ -27,6 +39,16 @@
         </tr>
         {% endfor %}
     </table>
+
+    <h3 class="available_books">Ukoliko je knjiga koju želite dostupna u našoj biblioteci možete ispuniti formu i <a
+            href="borrow_book.html" class="go_to_borrow">pozajmiti
+            knjigu</a> do određenih rokova ili je <span class="style_txt">preuzeti u PDF formatu</span> (ako je
+        dostupna).
+    </h3>
+
+    <a href="/books/add" class="button_add">Dodaj knjigu!</a>
+
+    {% include 'components/footer.html' %}
 
 </body>
 
