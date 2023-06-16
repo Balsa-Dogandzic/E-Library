@@ -2,26 +2,49 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+    <meta name="description" content="Project">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dodaj rezervaciju</title>
+
+    <title>Pozajmi</title>
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style_for_imp_forms.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
 </head>
 
 <body>
-    <form action="/reservations/add" method="post">
-        <p>Knjiga:</p>
-        <select name="book">
-            {% for book in books %}
-            <option value="{{ book[0] }}">{{ book[1] }}</option>
-            {% endfor %}
-        </select>
-        <br>
-        <input type="date" name="issue_start">
-        <br>
-        <input type="date" name="issue_end">
-        <br><br>
-        <input type="submit" value="submit">
-    </form>
+
+    {% include 'components/navbar.html' %}
+
+    <div class="container_for_borrow">
+        <h2>Pozajmica knjiga</h2>
+        <form action="/reservations/add" method="post">
+            <div class="form-group-pozajmi">
+                <label for="person-name">Knjiga:</label>
+                <select name="book">
+                    {% for book in books %}
+                    <option value="{{book[0]}}">{{book[1]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group-pozajmi">
+                <label for="book-title">Datum pozajmice:</label>
+                <input type="date" name="issue_start" required>
+            </div>
+            <div class="form-group-pozajmi">
+                <label for="author-name">Datum vracanja:</label>
+                <input type="date" name="issue_end" required>
+            </div>
+
+            <input type="submit" class="btn-submit" value="Dodaj knjigu">
+        </form>
+    </div>
+
+    {% include 'components/footer.html' %}
+
 </body>
 
 </html>

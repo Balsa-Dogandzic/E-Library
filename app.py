@@ -28,16 +28,6 @@ def all_books():
     cursor.close()
     return render_template("books.html", books=books)
 
-@app.route("/books/<int:book_id>")
-def single_book(book_id):
-    cursor = db.connection.cursor()
-    cursor.execute(f"SELECT knjiga.*, autor.autor FROM knjiga JOIN autor ON knjiga.autor_id = autor.id WHERE knjiga.id={book_id}")
-    book = cursor.fetchone()
-    cursor.close()
-    if book:
-        return render_template("book.html", book=book)
-    abort(404)
-
 @app.route("/books/add", methods=['GET', 'POST'])
 def add_book():
     if session.get('user_type') != 2:
@@ -100,12 +90,12 @@ def all_reservations():
         return redirect("/login")
     if session['user_type'] == 1:
         cursor = db.connection.cursor()
-        cursor.execute(f"SELECT rezervacije.id, ime, prezime, naslov, datum_preuzimanja, datum_vracanja FROM korisnik JOIN rezervacije ON rezervacije.korisnik_id = korisnik.id JOIN knjiga ON rezervacije.knjiga_id = knjiga.id WHERE korisnik.id={session['id']}")
+        cursor.execute(f"SELECT rezervacije.id, ime, prezime, naslov, datum_preuzimanja, datum_vracanja FROM korisnik JOIN rezervacije ON rezervacije.korisnik_id = korisnik.id JOIN knjiga ON rezervacije.knjiga_id = knjiga.id WHERE korisnik.id={session['id']}  ORDER BY datum_vracanja")
         reservations = cursor.fetchall()
         cursor.close()
     else:
         cursor = db.connection.cursor()
-        cursor.execute(f"SELECT rezervacije.id, ime, prezime, naslov, datum_preuzimanja, datum_vracanja FROM korisnik JOIN rezervacije ON rezervacije.korisnik_id = korisnik.id JOIN knjiga ON rezervacije.knjiga_id = knjiga.id")
+        cursor.execute(f"SELECT rezervacije.id, ime, prezime, naslov, datum_preuzimanja, datum_vracanja FROM korisnik JOIN rezervacije ON rezervacije.korisnik_id = korisnik.id JOIN knjiga ON rezervacije.knjiga_id = knjiga.id ORDER BY datum_vracanja")
         reservations = cursor.fetchall()
         cursor.close()
     return render_template("reservations.html",reservations=reservations)
@@ -141,7 +131,6 @@ def delete_reservation(id):
         return redirect("/reservations")
     except:
         abort(404)
-    
 
 import auth
 

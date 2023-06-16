@@ -27,7 +27,10 @@
             <th>Zanr knjige</th>
             <th>Autor</th>
             <th>Povez/Korice</th>
-            <th>Link do knjige</th>
+            {% if session['user_type'] == 2%}
+            <th></th>
+            <th></th>
+            {% endif %}
         </tr>
         {% for book in books %}
         <tr>
@@ -35,19 +38,22 @@
             <td>{{ book[2] }}</td>
             <td>{{ book[-1] }}</td>
             <td>{{ book[4] }}</td>
-            <td><a href="books/{{ book[0] }}">Link</a></td>
+            {% if session['user_type'] == 2%}
+            <td><a href="/books/edit/{{ book[0] }}">Promijeni knjigu</a></td>
+            <td><a href="/books/delete/{{ book[0] }}">Obrisi knjigu</a></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>
 
     <h3 class="available_books">Ukoliko je knjiga koju želite dostupna u našoj biblioteci možete ispuniti formu i <a
-            href="borrow_book.html" class="go_to_borrow">pozajmiti
+            href="/reservations/add" class="go_to_borrow">pozajmiti
             knjigu</a> do određenih rokova ili je <span class="style_txt">preuzeti u PDF formatu</span> (ako je
         dostupna).
     </h3>
-
+    {% if session['user_type'] == 2%}
     <a href="/books/add" class="button_add">Dodaj knjigu!</a>
-
+    {% endif %}
     {% include 'components/footer.html' %}
 
 </body>
