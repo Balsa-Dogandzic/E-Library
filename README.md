@@ -32,11 +32,5 @@ If you can't install from `reqirements.txt` file you can install the manually:
 
 ### Contributors
 
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-
-<!-- ALL-CONTRIBUTORS-LIST:END -->
+1. Balsa Dogandzic, [GitHub](https://github.com/Balsa-Dogandzic)
+2. Josif Vukicevic, [GitHub](https://github.com/JosifVukicevic)
