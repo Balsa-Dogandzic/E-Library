@@ -1,24 +1,42 @@
-# FlaskWebApp
+# E-Library
 
-Pokretanje aplikacije:
+Website that allows users to reserve books online, and librarians to manage all books, users and reservations in the library.
 
-1. Kreiranje okruzenja(vrlo je bitno da se nalazite u folderu projekta):
+### Technologies
+
+Technologies used on the frontend of the application are the basic web technologies (HTML, CSS, JS). Backend of the application was built in Python, specifically Flask. MySQL is used for storing data.
+
+### Setup
+
+Sofware you need for running this project locally are Python and some software for running MySQL database (XAMPP, WAMP...). The following commands work for Windows, if you use some other OS find the alternative to these commands. Clone the repository and make sure you are located in the project root folder.
+
+1. You need to create python virtual enviroment with the following command:
 
 - python -m venv env
 
-2. Aktiviranje okruzenja:
+2. Then you need to activate it:
 
 - env\Scripts\activate
 
-3. Instalacija biblioteka (flask, flask_mysqldb):
+3. Installing packages (flask, flask_mysqldb):
 
 - pip install -r requirements.txt
 
-Ukoliko to ne radi biblioteke se mogu instalirati rucno:
+If you can't install from `reqirements.txt` file you can install the manually:
 
 - pip install flask, flask_mysqldb
 
-4. Importovanje SQL fajla u phpMyAdmin
-   Napravite novu bazu koja se zove biblioteka, a zatim importujte skriptu koja se zove 'biblioteka.sql'
+4. Make new MySQL database called "biblioteka" (if you want to name it differently you can edit the source code), then import the database schema from `biblioteka.sql` file
 
-5. Pokretanje app.py fajla direktno preko VS Code-a
+5. If everything went okay, you can run the server by executing `app.py` file
+
+### Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
